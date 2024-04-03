@@ -6,10 +6,12 @@ import java.util.Map;
 public class Library extends Building {
 
     private Hashtable<String, Boolean> collection;
+    private boolean hasElevator;
 
-    public Library(String name, String address, int nFloors, Hashtable<String, Boolean> collection) {
+    public Library(String name, String address, int nFloors, Boolean hasElevator, Hashtable<String, Boolean> collection) {
         super(name, address, nFloors);
         this.collection = collection;
+        this.hasElevator = hasElevator;
     }
 
     /**
@@ -82,7 +84,17 @@ public class Library extends Building {
     Boolean value = entry.getValue();
 
     System.out.println ("Key: " + key + " Value: " + value);
-  }
+    }
   }
 
+  public void showOptions() {
+    super.showOptions();
   }
+
+  public void goToFloor(int floorNum) {
+    if (hasElevator == true){
+      super.goToFloor(floorNum);
+    }
+  }
+
+}

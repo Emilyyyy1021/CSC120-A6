@@ -42,6 +42,10 @@ public class Cafe extends Building{
         System.out.println("Coffee: " + nCoffeeOunces + "\nSugar: " + nSugarPackets + "\nCreams: " + nCreams + "\nCups: " + nCups);
     }
 
+    public void showOptions() {
+        super.showOptions();
+    }
+
     public static void main(String[] args) {
         Cafe CC = new Cafe("CC", "100 Elm St", 3, 100, 50, 20, 30);
         CC.sellCoffee(5, 2, 1);

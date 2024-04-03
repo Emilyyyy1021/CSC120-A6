@@ -5,11 +5,13 @@ public class House extends Building{
 
   private ArrayList<String> residents; // The <String> tells Java what kind of data we plan to store IN the ArrayList
   private boolean hasDiningRoom;
+  private boolean hasElevator;
 
 
-  public House(String name, String address, int nFloors, boolean hasDiningRoom, ArrayList<String> residents) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElavator, ArrayList<String> residents) {
     super(name, address, nFloors);
     this.hasDiningRoom = hasDiningRoom;
+    this.hasElevator = hasElevator;
     this.residents = residents;
     
   }
@@ -72,10 +74,20 @@ public class House extends Building{
     }else{
       return false;
     }
+  }
 
+  public void showOptions() {
+    super.showOptions();
+  }
+
+  public void goToFloor(int floorNum) {
+    if (hasElevator == true){
+      super.goToFloor(floorNum);
+    }
+    
   }
 
   // public static void main(String[] args) {
-  //   House Ziskind = new House("Ziskind", "1 Henshaw Ave", 3, true, new ArrayList<residents>());
+  //   House Ziskind = new House("Ziskind", "1 Henshaw Ave", 3, true, true, new ArrayList<residents>());
   // }
 }
