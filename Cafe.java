@@ -20,11 +20,15 @@ public class Cafe extends Building{
      * @param nSugarPackets number of sugar packets
      * @param nCreams number of creams
      */
-    public void sellCoffee(int size, int nSugarPackets, int nCreams){
+    public void sellCoffee(int size, int nSP, int nCr, int nCu){
         this.nCoffeeOunces -= size;
-        this.nSugarPackets -= nSugarPackets;
-        this.nCreams -= nCreams;
-        System.out.println("Coffee: " + nCoffeeOunces + "\nSugar: " + nSugarPackets + "\nCream: " + nCreams);
+        this.nSugarPackets -= nSP;
+        this.nCreams -= nCr;
+        this.nCups -= nCu;
+        System.out.println("Coffee: " + nCoffeeOunces + "\nSugar: " + nSugarPackets + "\nCream: " + nCreams + "\nCups: " + nCups);
+        if (nCoffeeOunces == 0 || nSugarPackets == 0 || nCreams == 0 || nCups == 0) {
+            restock(10, 10, 10, 10);
+        }
     }
 
     /**
@@ -48,7 +52,7 @@ public class Cafe extends Building{
 
     public static void main(String[] args) {
         Cafe CC = new Cafe("CC", "100 Elm St", 3, 100, 50, 20, 30);
-        CC.sellCoffee(5, 2, 1);
+        CC.sellCoffee(5, 2, 1, 1);
         CC.restock(100, 100, 100, 100);
     }
     
