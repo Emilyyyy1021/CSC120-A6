@@ -7,11 +7,10 @@ public class House extends Building{
   private boolean hasDiningRoom;
   private boolean hasElevator;
 
-
+  /*consturctor */
   public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElavator, ArrayList<String> residents) {
     super(name, address, nFloors);
     this.hasDiningRoom = hasDiningRoom;
-    this.hasElevator = hasElevator;
     this.residents = residents;
     
   }
@@ -87,7 +86,30 @@ public class House extends Building{
     
   }
 
-  // public static void main(String[] args) {
-  //   House Ziskind = new House("Ziskind", "1 Henshaw Ave", 3, true, true, new ArrayList<residents>());
-  // }
+
+  public static void main(String[] args) {
+    // Create an ArrayList to store residents for the house
+    ArrayList<String> residents = new ArrayList<>();
+    residents.add("John");
+    residents.add("Alice");
+    
+    // Create a new House instance
+    House myHouse = new House("Cozy Home", "123 Main St", 2, true, true, residents);
+
+    // Test the methods
+    System.out.println("Number of residents: " + myHouse.nResidents()); 
+    System.out.println("Has dining room? " + myHouse.hasDiningRoom());
+
+    // Move in a new resident
+    myHouse.moveIn("Jordan");
+
+    // Test if a resident is in the house
+    System.out.println("Is Jordan a resident? " + myHouse.isResident("Jordan"));
+
+    // Move out a resident
+    System.out.println("Moved out: " + myHouse.moveOut("Alice")); 
+
+    // Test if a resident is still in the house
+    System.out.println("Is Alice a resident? " + myHouse.isResident("Alice")); 
+}
 }

@@ -8,6 +8,7 @@ public class Library extends Building {
     private Hashtable<String, Boolean> collection;
     private boolean hasElevator;
 
+    /* constructor */
     public Library(String name, String address, int nFloors, Boolean hasElevator, Hashtable<String, Boolean> collection) {
         super(name, address, nFloors);
         this.collection = collection;
@@ -85,10 +86,6 @@ public class Library extends Building {
 
     System.out.println ("Key: " + key + " Value: " + value);
     }
-  }
-
-  public void showOptions() {
-    super.showOptions();
   }
 
   public void goToFloor(int floorNum) {

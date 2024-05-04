@@ -6,6 +6,7 @@ public class Cafe extends Building{
     private int nCreams; // The number of "splashes" of cream remaining in inventory
     private int nCups; // The number of cups remaining in inventory
 
+    /* constructor */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         super(name, address, nFloors);
         this.nCoffeeOunces = nCoffeeOunces;
@@ -21,14 +22,14 @@ public class Cafe extends Building{
      * @param nCreams number of creams
      */
     public void sellCoffee(int size, int nSP, int nCr, int nCu){
+        if (nCoffeeOunces == 0 || nSugarPackets == 0 || nCreams == 0 || nCups == 0) {
+            restock(10, 10, 10, 10);
+        }
         this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSP;
         this.nCreams -= nCr;
         this.nCups -= nCu;
         System.out.println("Coffee: " + nCoffeeOunces + "\nSugar: " + nSugarPackets + "\nCream: " + nCreams + "\nCups: " + nCups);
-        if (nCoffeeOunces == 0 || nSugarPackets == 0 || nCreams == 0 || nCups == 0) {
-            restock(10, 10, 10, 10);
-        }
     }
 
     /**
